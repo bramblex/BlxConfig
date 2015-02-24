@@ -1,0 +1,21 @@
+"set go=nrbs
+set go=r
+
+set maxitems=6
+
+nmap -builtin ` :emenu 工具.添加至印象笔记<cr>
+
+nmap -builtin j 4j
+nmap -builtin k 4k
+
+nmap -builtin <A-j> j
+nmap -builtin <A-k> k
+
+map -builtin -m n,v,i,c,t <C-a> <Pass>
+map -builtin -m n,v,i,c,t <C-c> <Pass>
+map -builtin -m i,c,t <C-v> <Pass>
+map -builtin -m i,c,t <C-x> <Pass>
+map -builtin -m i,c,t <C-z> <Pass>
+
+hi Hint font:bold 14px monospace !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:rgba(255, 248, 231, .8); color:black; text-transform:uppercase;
+set hintkeys=asdfg;lkjh
