@@ -19,3 +19,6 @@ map -builtin -m i,c,t <C-z> <Pass>
 
 hi Hint font:bold 14px monospace !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:rgba(255, 248, 231, .8); color:black; text-transform:uppercase;
 set hintkeys=asdfg;lkjh
+
+"style chrome://* #dactyl-commandline-command input {ime-mode: disabled;}
+"style chrome://* #dactyl-statusline-field-commandline-command input {ime-mode: disabled;}

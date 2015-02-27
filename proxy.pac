@@ -2,75 +2,54 @@
 function FindProxyForURL(url, host) {
     // our local URLs from the domains below example.com don't need a proxy:
     //var PROXY = 'PROXY 127.0.0.1:16808';
-    var PROXY = 'PROXY 127.0.0.1:8119';
     //var PROXY_SOCKS = 'PROXY 127.0.0.1:16809';
+    var PROXY = 'PROXY 127.0.0.1:8119';
 
-    var prefix = '^https?:\/\/[^\/]*';
-    var suffix = '.(org|net|com|co\.jp|com\.hk|io|tv)/i';
-
+    var prefix = '^https?:\/\/[^\/]*'
+    var suffix = '\\..*$'
     var white_list = [
         // Google
-        /^https?:\/\/[^\/]*google[^\.\/]*\.(com|co\.jp|com\.hk)/i,
-        /^https?:\/\/[^\/]*gstatic\.com/i,
-        /^https?:\/\/[^\/]*chrome[^\.\/]*\.(com)/i,
+        'google[^.\/]*',
+        'gstatic',
+        'chrome',
+        'gmail',
 
-        // Gmail
-        /^https?:\/\/[^\/]*gmail\.com/i,
+        // Flask documents
+        'pocoo',
+
+        // Git
+        'githubusercontent',
+        // Source forge
+        'sourceforge',
+        // Dropbox
+        'dropbox',
 
         // Youtube
-        /^https?:\/\/[^\/]*youtube[^\.\/]*\.(com|co\.jp|com\.hk)/i,
-        /^https?:\/\/[^\/]*ytimg[^\.\/]*\.(com|co\.jp|com\.hk)/i,
-        /^https?:\/\/[^\/]*ggpht[^\.\/]*\.(com|co\.jp|com\.hk)/i,
-        /^https?:\/\/[^\/]*doubleclick[^\.\/]*\.(net)/i,
-
-        // Github
-        /^https?:\/\/[^\/]*github[^\.\/]*\.(com|io)/i,
+        'youtube',
+        'ytimg',
+        'ggpht',
+        'doubleclick',
 
         // Wikipedia
-        /^https?:\/\/[^\/]*wikipedia[^\.\/]*\.(org)/i,
-
-
-        // Facebook
-        /^https?:\/\/[^\/]*facebook[^\.\/]*\.(com)/i,
+        'wikipedia',
 
         // Facebook
-        /^https?:\/\/[^\/]*twitter[^\.\/]*\.(com)/i,
-        /^https?:\/\/t\.(co)/i,
+        'facebook',
 
-        // Dropbox
-        /^https?:\/\/[^\/]*dropbox[^\.\/]*\.(com)/i,
+        // Twitter
+        'twitter',
 
-        // Source forge
-        /^https?:\/\/[^\/]*sourceforge[^\.\/]*\.(net)/i,
+        // Redtube
+        'redtube',
 
-        /^https?:\/\/[^\/]*wmtransfer[^\.\/]*\.(com)/i,
+    ]
 
-        /^https?:\/\/[^\/]*recaptcha[^\.\/]*\.(net)/i,
-
-        /^https?:\/\/[^\/]redtube*[^\.\/]*\.(com|tv)/i,
-
-        /pocoo.org/i,
-    ];
-
-    for (var i=0; i < white_list.length; i++){
-        if (white_list[i].test(url))
+    for (var i=white_list.length - 1; i >= 0; i--){
+        var r = RegExp(prefix + white_list[i] + suffix, 'i');
+        if (r.test(url)){
             return PROXY;
+        }
     }
-    //if (shExpMatch(url, 'https?://*.google.com*')){
-        //return PROXY;
-    //}
-    //if (shExpMatch(url,'*.example.com/*'))                  {return 'DIRECT';}
-    //if (shExpMatch(url, '*.example.com:*/*'))               {return 'DIRECT';}
 
-    // URLs within this network are accessed through
-    // port 8080 on fastproxy.example.com:
-    //if (isInNet(host, '10.0.0.0',  '255.255.248.0'))    {
-        //return 'PROXY fastproxy.example.com:8080';
-    //}
-
-    // All other requests go through port 8080 of proxy.example.com.
-    // should that fail to respond, go directly to the WWW:
-
-    //return PROXY;
     return 'DIRECT';
 }
