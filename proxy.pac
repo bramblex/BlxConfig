@@ -19,6 +19,8 @@ function FindProxyForURL(url, host) {
 
         // Git
         'githubusercontent',
+        'github',
+
         // Source forge
         'sourceforge',
         // Dropbox
@@ -38,10 +40,70 @@ function FindProxyForURL(url, host) {
 
         // Twitter
         'twitter',
+        'twimg',
 
         // Redtube
         'redtube',
+        'redtubefiles',
+        'sex8',
 
+        // v2ex
+        'v2ex',
+
+        // linkedin
+        'linkedin',
+
+        // atlassian
+        'atlassian',
+
+        // yourepeat
+        'yourepeat',
+
+        // blog
+        'blogspot',
+        'blogger',
+        'blogblog',
+
+        // vpngate
+        'vpngate',
+        'softether',
+        'fqrouter',
+        'amazonaws',
+
+        // vpngate
+        'creaders',
+
+        // 60video.com
+        '60video',
+
+        // wp
+        'wp',
+        'gravatar',
+        'choorucode',
+
+        // brew
+        //'bintray',
+
+        'github',
+        'stackoverflow',
+
+        // Tor
+        'torproject',
+
+        'angularjs',
+
+        '5digits',
+
+        'lodash',
+        //'*steam*',
+        'python',
+
+        'optimizely',
+
+        'ithome',
+
+        // univercity
+        'sjsu',
     ]
 
     for (var i=white_list.length - 1; i >= 0; i--){

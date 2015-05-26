@@ -3,13 +3,11 @@ set go=r
 
 set maxitems=6
 
-nmap -builtin ` :emenu 工具.添加至印象笔记<cr>
-
 nmap -builtin j 4j
 nmap -builtin k 4k
 
-nmap -builtin <A-j> j
-nmap -builtin <A-k> k
+nmap -builtin <C-j> j
+nmap -builtin <C-k> k
 
 map -builtin -m n,v,i,c,t <C-a> <Pass>
 map -builtin -m n,v,i,c,t <C-c> <Pass>
@@ -22,3 +20,6 @@ set hintkeys=asdfg;lkjh
 
 "style chrome://* #dactyl-commandline-command input {ime-mode: disabled;}
 "style chrome://* #dactyl-statusline-field-commandline-command input {ime-mode: disabled;}
+
+" Vim
+" vim: set ft=vim:
